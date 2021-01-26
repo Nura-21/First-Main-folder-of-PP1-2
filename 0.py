@@ -1,2 +1,2 @@
-s = "Nura"
+s = "exp"
 print(s*2)
