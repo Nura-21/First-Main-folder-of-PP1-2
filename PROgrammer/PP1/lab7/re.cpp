@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+string all(string s,int l,int is,string g,int lg,int ig){
+    if(l % 2==0){
+        if(ig==lg) { return g;}
+        if(ig % 2 == 0 && ig<l){g[ig]='(';return all(s,l,is,g,lg,ig+1);}
+        if(ig % 2 != 0 && ig>l-1){g[ig]=')';return all(s,l,is,g,lg,ig+1);}
+        g[ig]=s[is];return all(s,l,is+1,g,lg,ig+1);
+    }
+    if(ig==lg){return g;}
+    if(ig % 2 != 0 && ig<l){g[ig]='(';return all(s,l,is,g,lg,ig+1);}
+    if(ig % 2 !=0 && ig>l-1 ){g[ig]=')';return all(s,l,is,g,lg,ig+1);}
+    g[ig]=s[is];return all(s,l,is+1,g,lg,ig+1);
+}
+int main(){
+    string s;
+    cin>>s;
+    int ls=s.size(); 
+    string g;
+    g.resize(ls*2-1);
+    int lg=g.size();
+    cout<<all(s,ls,0,g,lg,0);
+}
