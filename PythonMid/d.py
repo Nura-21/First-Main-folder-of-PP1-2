@@ -1,15 +1,20 @@
 s = input()
 x,y = input().split()
 nx,ny = 0,0
+ok1 = True
 for i in range(len(s)):
     if s[i] == 'L':
-        ny-=1 
+        nx-=1 
     elif s[i] == 'R':
-        ny+=1
-    elif s[i] == 'U':
         nx+=1
+    elif s[i] == 'U':
+        ny+=1
     elif s[i] == 'D':
-        nx-=1
+        ny-=1
     if nx == int(x) and ny == int(y):
+            ok1 = True
             print("Passed")
-    else: print("Missed")
+            quit()
+    else: ok1 = False
+if not ok1:
+    print("Missed")
