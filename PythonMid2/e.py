@@ -1,13 +1,15 @@
 n = int(input())
-import re
-l = []
+s = list()
+d = dict()
 for i in range(n):
-    l.append(input().split())
-k = int(input())
-l2 = []
-for i in range(k):
-    l2.append(input())
-l3 = []
-for i in range(n):
-    l3.append(''.join(l[i]))
-print(l3)
+    s = input().split()
+    #print(s,*s[1])
+    for i in range(2,2+int(s[1])):
+        d[s[i]]=s[0]
+m = int(input())
+for i in range(m):
+    s1 = str(input())
+    if s1 not in d:
+        print("Unknown")
+    else:
+        print(d[s1])
