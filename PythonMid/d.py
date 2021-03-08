@@ -2,7 +2,18 @@ s = input()
 x,y = input().split()
 nx,ny = 0,0
 ok1 = True
+qt = False
+if x==0 and y == 0:
+    print("Passed")
+    quit()
 for i in range(len(s)):
+    if x=='0' and y == '0':
+        ok1 = True
+        print("Passed")
+        qt = True
+        quit()
+    if qt == True:
+        quit()    
     if s[i] == 'L':
         nx-=1 
     elif s[i] == 'R':

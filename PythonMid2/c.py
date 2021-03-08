@@ -1,4 +1,10 @@
 n = int(input())
-l = sorted(list(set(sorted(input().split()))))
-for i in range(1,len(l)):
-    print(i,l[i])
+a = list(map(int,input().split()))
+s = set()
+j = 1
+for i in a:
+    s.add(i)
+s= sorted(s,key=int)
+for i in s:
+    print(j,i)
+    j+=1

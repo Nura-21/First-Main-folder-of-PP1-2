@@ -1,6 +1,12 @@
 n = int(input())
-l = input().split()
+s = list(map(str,input().split()))
 k = int(input())
-s = ''.join(l)
-fir,sec = int(s[0:k]),int(s[k:n])
-print(fir * sec)
+if k == 0:
+    print('0')
+    quit()
+fir,sec = '',''
+for i in s[0:k]:
+    fir+=i
+for i in s[k:]:
+    sec+=i
+print(int(fir) * int(sec))
