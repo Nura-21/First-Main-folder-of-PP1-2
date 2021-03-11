@@ -8,6 +8,11 @@ for i in range(len(s)):
 k = 0
 while k < len(id)-1:
     for i in range(len(s)):
-        ans.append(min(abs(id[k] - i),abs(id[k+1] - i)))
+        ans.append(abs(id[k]-i))
+    k+=1
+k = 0
+while k < len(id) - 1:
+    for i in range(len(s)):
+        ans[i] = (min(abs(id[k+1] - i),ans[i]))
     k+=1
 print(ans)
