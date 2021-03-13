@@ -1,0 +1,1 @@
+print((list(map(lambda x: bool(len(x)%2!=0), list(map(str, input().split()))))).count(1))
