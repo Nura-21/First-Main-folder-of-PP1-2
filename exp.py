@@ -1,10 +1,16 @@
-def isprime(n):
-    if n==2 or n==3: return True
-    if n%2==0 or n<2: return False
-    for i in range(3, int(n**0.5)+1, 2):   # only odd numbers
-        if n%i==0:
-            return False    
-
-    return True
 n = int(input())
-print([isprime(n)])
+d = {}
+ans = []
+ok = False
+for i in range(n):
+    s = input()
+    d[s] = d.get(s,0) + 1
+    if d[s] % 2 == 0:
+        ans.append(s)
+        ok = True
+
+if not ok:
+    print("Understandable, have a great day")
+else:
+    for i in ans:
+        print(i)
