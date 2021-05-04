@@ -1,26 +1,28 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
-int main(){
-    int n; cin>>n;
-    map<string,int> m;
-    bool ok;
-    ok = 0;
-    vector<string> v;
-    for(int i=0;i<n;++i){
-        string s;
-        cin>>s;
-        m[s] +=1;
-        if(m[s]  % 2 == 0){
-            v.push_back(s);
-            ok = 1;
-        }
+int main() 
+{
+	string s;
+    getline(cin, s);
+	int counter = 0;
+	int max_word = -1;
+	int len = s.length();
+    string max = " ";
+	for (int i = 0; i < len; i++)
+	{
+		if(s[i] != ' ') {
+			counter++;
+		} 
+		if(s[i] == ' ' || i == len - 1) {
+			if(counter > max_word) {
+				max_word = counter;
+				if(i == len - 1) {max = s.substr(i + 1 - max_word, max_word);}
+                else {max = s.substr(i - max_word, max_word);}
+             }
+			counter = 0;
+		}
     }
-    if(ok == 0){
-        cout<<"Understandable, have a nice day"<<endl;
-    }
-    else{
-        for(int i=0;i<v.size();++i){
-            cout<<v[i]<<endl;
-        }
-    }
+    cout << max << endl;
+	return 0;
 }
